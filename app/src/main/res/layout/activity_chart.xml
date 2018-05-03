@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    >
+<include layout="@layout/toolbar_layout" android:id="@+id/chart_bar" />
+    <Button
+        android:id="@+id/btn_latencychart"
+        android:textColor="#031969"
+        android:background="#43f9e0"
+        android:textStyle="bold"
+        android:text="latency chart"
+        android:textSize="20dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="16dp"/>
+    <Button
+        android:id="@+id/btn_ipdvchart"
+        android:textColor="#01074b"
+        android:background="#43f9e0"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:text="IPDV CHART"
+        android:layout_margin="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+    <Button
+        android:id="@+id/btn_voipchart"
+        android:textColor="#020156"
+        android:background="#43f9e0"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:text="VOIP CHART"
+        android:layout_margin="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+    <Button
+        android:id="@+id/btn_videochart"
+        android:textColor="#010456"
+        android:background="#43f9e0"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:text="VIDEO CHART"
+        android:layout_margin="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+    <Button
+        android:id="@+id/btn_datachart"
+        android:textColor="#010756"
+        android:background="#43f9e0"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:text="DATA CHART"
+        android:layout_margin="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+</LinearLayout>
