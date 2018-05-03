@@ -8,7 +8,7 @@ import org.parceler.Parcel;
 @Parcel
 public class TransferParcel {
 
-    private Profile profile;
+    public Profile profile;
 
     public TransferParcel() {
     }

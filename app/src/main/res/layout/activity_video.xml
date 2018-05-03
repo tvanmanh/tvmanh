@@ -22,7 +22,7 @@
         android:textStyle="bold" />
 
     <com.hookedonplay.decoviewlib.DecoView
-        android:id="@+id/voip_latency"
+        android:id="@+id/video_latency"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_above="@+id/textView2"
@@ -30,10 +30,10 @@
         app:dv_lineWidth="20dp" />
 
     <TextView
-        android:id="@+id/voip_pecentL"
+        android:id="@+id/video_pecentL"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/voip_latency"
+        android:layout_alignTop="@+id/video_latency"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="41dp"
         android:text="80%"
@@ -41,11 +41,10 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/voip_levelL"
+        android:id="@+id/video_levelL"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:layout_below="@+id/voip_pecentL"
+        android:layout_below="@+id/video_pecentL"
         android:layout_centerHorizontal="true"
         android:text="Average"
         android:textColor="#ff00"
@@ -57,7 +56,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/voip_ipdv"
+        android:layout_above="@+id/video_ipdv"
         android:layout_alignEnd="@+id/textView9"
         android:layout_alignRight="@+id/textView9"
         android:layout_marginEnd="32dp"
@@ -66,32 +65,32 @@
         android:textSize="20dp" />
 
     <com.hookedonplay.decoviewlib.DecoView
-        android:id="@+id/voip_ipdv"
+        android:id="@+id/video_ipdv"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_above="@+id/textView9"
-        android:layout_alignLeft="@+id/voip_latency"
-        android:layout_alignStart="@+id/voip_latency"
+        android:layout_alignLeft="@+id/video_latency"
+        android:layout_alignStart="@+id/video_latency"
         app:dv_lineWidth="20dp" />
 
     <TextView
-        android:id="@+id/voip_pecentipdv"
+        android:id="@+id/video_pecentipdv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/voip_pecentL"
-        android:layout_alignStart="@+id/voip_pecentL"
+        android:layout_alignLeft="@+id/video_pecentL"
+        android:layout_alignStart="@+id/video_pecentL"
         android:layout_centerVertical="true"
         android:text="80%"
         android:textSize="25dp"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/voip_levelipdv"
+        android:id="@+id/video_levelipdv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/voip_levelL"
-        android:layout_alignStart="@+id/voip_levelL"
-        android:layout_below="@+id/voip_pecentipdv"
+        android:layout_alignLeft="@+id/video_levelL"
+        android:layout_alignStart="@+id/video_levelL"
+        android:layout_below="@+id/video_pecentipdv"
         android:text="Average"
         android:textColor="#ff00"
         android:textSize="16dp" />
@@ -101,26 +100,26 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/voip_losspacket"
-        android:layout_alignEnd="@+id/voip_ipdv"
-        android:layout_alignRight="@+id/voip_ipdv"
+        android:layout_above="@+id/video_losspacket"
+        android:layout_alignEnd="@+id/video_ipdv"
+        android:layout_alignRight="@+id/video_ipdv"
         android:layout_marginEnd="13dp"
         android:layout_marginRight="13dp"
         android:text="Loss packet"
         android:textSize="20dp" />
 
     <com.hookedonplay.decoviewlib.DecoView
-        android:id="@+id/voip_losspacket"
+        android:id="@+id/video_losspacket"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_alignLeft="@+id/voip_ipdv"
+        android:layout_alignLeft="@+id/video_ipdv"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/voip_ipdv"
+        android:layout_alignStart="@+id/video_ipdv"
         android:layout_marginBottom="15dp"
         app:dv_lineWidth="20dp" />
 
     <TextView
-        android:id="@+id/voip_pecentloss"
+        android:id="@+id/video_pecentloss"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/textView2"
@@ -132,12 +131,12 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/voip_levelloss"
+        android:id="@+id/video_levelloss"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/voip_pecentipdv"
-        android:layout_alignStart="@+id/voip_pecentipdv"
-        android:layout_below="@+id/voip_pecentloss"
+        android:layout_alignLeft="@+id/video_pecentipdv"
+        android:layout_alignStart="@+id/video_pecentipdv"
+        android:layout_below="@+id/video_pecentloss"
         android:text="Average"
         android:textColor="#ff00"
         android:textSize="16dp" />

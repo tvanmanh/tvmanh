@@ -4,40 +4,37 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 
 import com.hookedonplay.decoviewlib.DecoView;
 import com.hookedonplay.decoviewlib.charts.SeriesItem;
 import com.hookedonplay.decoviewlib.events.DecoEvent;
 
-import org.w3c.dom.Text;
-
-public class VoipChart extends AppCompatActivity {
+public class VideoActivity extends AppCompatActivity {
 
     private DecoView decoViewLa, decoViewI, decoViewLoss;
     private Profile profile;
     private TextView tvPecentLa, tvLevelLa, tvPecentI, tvLevelI, tvPecentLoss, tvLevelLoss;
 
-    final static double MAX_LATENCY = 50000; //microsecond specify by Qwest
-    final static double MAX_IPDV = 500; //microsecond specify by Internap
-    final static double MAX_PACKET_LOSS = 0.3; // percent specify by Internap
+    final static double MAX_LATENCY = 150000; //microsecond specify by Qwest
+    final static double MAX_IPDV = 1000; //microsecond specify by Internap
+    final static double MAX_PACKET_LOSS = 1; // percent specify by Internap
 
     double percentLatency, percentIpdv, percentLoss;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_voip_chart);
+        setContentView(R.layout.activity_video);
         Intent intent = getIntent();
         profile = (Profile) intent.getSerializableExtra("data");
 
-        tvPecentLa = (TextView) findViewById(R.id.voip_pecentL);
-        tvPecentI = (TextView) findViewById(R.id.voip_pecentipdv);
-        tvPecentLoss = (TextView) findViewById(R.id.voip_pecentloss);
-        tvLevelLa = (TextView) findViewById(R.id.voip_levelL);
-        tvLevelI = (TextView) findViewById(R.id.voip_levelipdv);
-        tvLevelLoss = (TextView) findViewById(R.id.voip_levelloss);
+        tvPecentLa = (TextView) findViewById(R.id.video_pecentL);
+        tvPecentI = (TextView) findViewById(R.id.video_pecentipdv);
+        tvPecentLoss = (TextView) findViewById(R.id.video_pecentloss);
+        tvLevelLa = (TextView) findViewById(R.id.video_levelL);
+        tvLevelI = (TextView) findViewById(R.id.video_levelipdv);
+        tvLevelLoss = (TextView) findViewById(R.id.video_levelloss);
 
 
 
@@ -48,12 +45,12 @@ public class VoipChart extends AppCompatActivity {
         }
 
         //________________draw latency chart
-        decoViewLa = (DecoView) findViewById(R.id.voip_latency);
+        decoViewLa = (DecoView) findViewById(R.id.video_latency);
 
         SeriesItem seriesItem = new SeriesItem.Builder(Color.parseColor("#FFE2E2E2"))
                 .setRange(0, 100, 100)
                 .build();
-         int backIndex = decoViewLa.addSeries(seriesItem);
+        int backIndex = decoViewLa.addSeries(seriesItem);
         SeriesItem seriesItem1 = new SeriesItem.Builder(Color.YELLOW)
                 .setRange(0, 100, 0)
                 .build();
@@ -82,7 +79,7 @@ public class VoipChart extends AppCompatActivity {
 
         //____________________draw ipdv chart
 
-        decoViewI = (DecoView) findViewById(R.id.voip_ipdv);
+        decoViewI = (DecoView) findViewById(R.id.video_ipdv);
 
         SeriesItem seriesItemI = new SeriesItem.Builder(Color.parseColor("#FFE2E2E2"))
                 .setRange(0, 100, 100)
@@ -112,7 +109,7 @@ public class VoipChart extends AppCompatActivity {
         }
 
         //____________________draw loss packet chart
-        decoViewLoss = (DecoView) findViewById(R.id.voip_losspacket);
+        decoViewLoss = (DecoView) findViewById(R.id.video_losspacket);
 
         SeriesItem seriesItemL = new SeriesItem.Builder(Color.parseColor("#FFE2E2E2"))
                 .setRange(0, 100, 100)

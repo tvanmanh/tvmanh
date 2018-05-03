@@ -55,7 +55,7 @@ public class IPDVChart extends AppCompatActivity {
         LineDataSet set1 = new LineDataSet(Yvalues, "IPDV [packet/us]");
         set1.setColor(Color.BLUE);
         set1.setLineWidth(2f);
-        set1.setValueTextColor(Color.GRAY);
+        set1.setValueTextColor(Color.RED);
         set1.setValueTextSize(10f);
 
         set1.setFillAlpha(110);

@@ -34,7 +34,9 @@
         <activity
             android:name=".IPDVChart"
             android:parentActivityName=".ChartActivity" />
-        <activity android:name=".VoipChart"></activity>
+        <activity android:name=".VoipChart" />
+        <activity android:name=".VideoActivity" />
+        <activity android:name=".DataAcitivity"></activity>
     </application>
 
 </manifest>

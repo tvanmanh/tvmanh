@@ -69,7 +69,7 @@ public class ChartActivity extends AppCompatActivity {
         btnVideoChart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ChartActivity.this, IPDVChart.class);
+                Intent intent = new Intent(ChartActivity.this, VideoActivity.class);
                 intent.putExtra("data", (Serializable) profile);
                 startActivity(intent);
             }
@@ -79,7 +79,7 @@ public class ChartActivity extends AppCompatActivity {
         btnDataChart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ChartActivity.this, IPDVChart.class);
+                Intent intent = new Intent(ChartActivity.this, DataAcitivity.class);
                 intent.putExtra("data", (Serializable) profile);
                 startActivity(intent);
             }

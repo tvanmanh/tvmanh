@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
@@ -31,6 +32,7 @@ public class LatencyChart extends AppCompatActivity {
         Intent intent = getIntent();
         profile = (Profile) intent.getSerializableExtra("data");
 
+
         toolbar = (Toolbar) findViewById(R.id.latency_bar);
 
         setSupportActionBar(toolbar);
@@ -55,7 +57,7 @@ public class LatencyChart extends AppCompatActivity {
         LineDataSet set2 = new LineDataSet(Y1values, "LATENCY [packet/us]");
         set2.setColor(Color.BLUE);
         set2.setLineWidth(2f);
-        set2.setValueTextColor(Color.GRAY);
+        set2.setValueTextColor(Color.RED);
         set2.setValueTextSize(10f);
 
         set2.setFillAlpha(110);
