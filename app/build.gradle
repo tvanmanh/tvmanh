@@ -30,4 +30,5 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.10.0'
     compile 'org.parceler:parceler-api:1.1.6'
     annotationProcessor 'org.parceler:parceler:1.1.6'
+    compile 'com.github.bmarrdev:android-DecoView-charting:v0.9.3'
 }

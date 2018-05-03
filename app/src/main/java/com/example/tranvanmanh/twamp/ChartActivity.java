@@ -59,7 +59,7 @@ public class ChartActivity extends AppCompatActivity {
         btnVoipChart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ChartActivity.this, IPDVChart.class);
+                Intent intent = new Intent(ChartActivity.this, VoipChart.class);
                 intent.putExtra("data", (Serializable) profile);
                 startActivity(intent);
             }
