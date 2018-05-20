@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#07f9f1"
@@ -8,18 +9,24 @@
 
     <TextView
         android:id="@+id/textView10"
-        android:layout_width="wrap_content"
+        android:layout_width="71dp"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/textView9"
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/textView9"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:text="Latency"
         android:textColor="#0e0e0e"
         android:textSize="20dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.hookedonplay.decoviewlib.DecoView
         android:id="@+id/video_latency"
@@ -27,7 +34,15 @@
         android:layout_height="150dp"
         android:layout_above="@+id/textView2"
         android:layout_centerHorizontal="true"
-        app:dv_lineWidth="20dp" />
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:dv_lineWidth="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <TextView
         android:id="@+id/video_pecentL"
@@ -35,34 +50,51 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/video_latency"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="41dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="48dp"
         android:text="80%"
         android:textSize="25dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/video_latency"
+        app:layout_constraintStart_toStartOf="@+id/video_latency"
+        app:layout_constraintTop_toTopOf="@+id/video_latency" />
 
     <TextView
         android:id="@+id/video_levelL"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="19dp"
         android:layout_below="@+id/video_pecentL"
         android:layout_centerHorizontal="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
         android:text="Average"
         android:textColor="#ff00"
-        android:textSize="16dp" />
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/video_pecentL" />
 
     <TextView
-        android:textStyle="bold"
-        android:textColor="#0e0e0e"
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/video_ipdv"
         android:layout_alignEnd="@+id/textView9"
         android:layout_alignRight="@+id/textView9"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_marginLeft="168dp"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="4dp"
         android:text="IPDV"
-        android:textSize="20dp" />
+        android:textColor="#0e0e0e"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/video_latency" />
 
     <com.hookedonplay.decoviewlib.DecoView
         android:id="@+id/video_ipdv"
@@ -71,7 +103,15 @@
         android:layout_above="@+id/textView9"
         android:layout_alignLeft="@+id/video_latency"
         android:layout_alignStart="@+id/video_latency"
-        app:dv_lineWidth="20dp" />
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        app:dv_lineWidth="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/video_pecentipdv"
@@ -80,9 +120,18 @@
         android:layout_alignLeft="@+id/video_pecentL"
         android:layout_alignStart="@+id/video_pecentL"
         android:layout_centerVertical="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="48dp"
         android:text="80%"
         android:textSize="25dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/video_ipdv"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/video_ipdv"
+        app:layout_constraintTop_toTopOf="@+id/video_ipdv" />
 
     <TextView
         android:id="@+id/video_levelipdv"
@@ -91,22 +140,33 @@
         android:layout_alignLeft="@+id/video_levelL"
         android:layout_alignStart="@+id/video_levelL"
         android:layout_below="@+id/video_pecentipdv"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
         android:text="Average"
         android:textColor="#ff00"
-        android:textSize="16dp" />
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/video_pecentipdv" />
+
     <TextView
-        android:textStyle="bold"
-        android:textColor="#0e0e0e"
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/video_losspacket"
         android:layout_alignEnd="@+id/video_ipdv"
         android:layout_alignRight="@+id/video_ipdv"
-        android:layout_marginEnd="13dp"
-        android:layout_marginRight="13dp"
+        android:layout_marginLeft="136dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="4dp"
         android:text="Loss packet"
-        android:textSize="20dp" />
+        android:textColor="#0e0e0e"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/video_ipdv" />
 
     <com.hookedonplay.decoviewlib.DecoView
         android:id="@+id/video_losspacket"
@@ -115,8 +175,14 @@
         android:layout_alignLeft="@+id/video_ipdv"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/video_ipdv"
-        android:layout_marginBottom="15dp"
-        app:dv_lineWidth="20dp" />
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        app:dv_lineWidth="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <TextView
         android:id="@+id/video_pecentloss"
@@ -125,10 +191,18 @@
         android:layout_alignEnd="@+id/textView2"
         android:layout_alignRight="@+id/textView2"
         android:layout_below="@+id/textView9"
-        android:layout_marginTop="39dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="48dp"
         android:text="80%"
         android:textSize="25dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/video_losspacket"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/video_losspacket"
+        app:layout_constraintTop_toTopOf="@+id/video_losspacket" />
 
     <TextView
         android:id="@+id/video_levelloss"
@@ -137,7 +211,14 @@
         android:layout_alignLeft="@+id/video_pecentipdv"
         android:layout_alignStart="@+id/video_pecentipdv"
         android:layout_below="@+id/video_pecentloss"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
         android:text="Average"
         android:textColor="#ff00"
-        android:textSize="16dp" />
-</RelativeLayout>
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/video_pecentloss" />
+</android.support.constraint.ConstraintLayout>

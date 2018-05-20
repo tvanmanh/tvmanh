@@ -104,7 +104,7 @@ public class ResultActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.results);
 
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Result");
+        getSupportActionBar().setTitle("TWAMP Round-Trip KPIs");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }

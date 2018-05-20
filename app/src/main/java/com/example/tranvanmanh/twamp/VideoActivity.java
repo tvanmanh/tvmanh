@@ -39,9 +39,9 @@ public class VideoActivity extends AppCompatActivity {
 
 
         if(profile != null){
-            percentLatency = profile.getLatency().getAvglatencyus()/MAX_LATENCY;
-            percentIpdv = profile.getIPDV().getIPDVavg()/MAX_IPDV;
-            percentLoss = (profile.getLostpackets()*100)/(MAX_PACKET_LOSS*profile.getTotalPacket());
+            percentLatency = profile.getLatency().getAvglatencyus();
+            percentIpdv = profile.getIPDV().getIPDVavg();
+            percentLoss = (profile.getLostpackets()*100)/(profile.getTotalPacket());
         }
 
         //________________draw latency chart
@@ -62,8 +62,9 @@ public class VideoActivity extends AppCompatActivity {
             tvLevelLa.setText("unAceptable Level");
         }
         else{
+            percentLatency = percentLatency/MAX_LATENCY;
             percentLatency = 100 - (percentLatency*100);
-            tvPecentLa.setText(String.valueOf((int)percentLatency) + " %");
+            tvPecentLa.setText(String.valueOf((int)percentLatency) + "%");
             decoViewLa.addEvent(new DecoEvent.Builder((int) percentLatency)
                     .setIndex(backIndex1)
                     .build());
@@ -94,8 +95,9 @@ public class VideoActivity extends AppCompatActivity {
             tvLevelI.setText("unAceptable Level");
         }
         else {
+            percentIpdv = percentIpdv/MAX_IPDV;
             percentIpdv = 100 - (percentIpdv * 100);
-            tvPecentI.setText(String.valueOf((int) percentIpdv) + " %");
+            tvPecentI.setText(String.valueOf((int) percentIpdv) + "%");
             decoViewI.addEvent(new DecoEvent.Builder((int) percentIpdv)
                     .setIndex(backIndex1)
                     .build());
@@ -124,8 +126,9 @@ public class VideoActivity extends AppCompatActivity {
             tvLevelI.setText("unAceptable Level");
         }
         else {
+            percentLoss = percentLoss/MAX_PACKET_LOSS;
             percentLoss = 100 - (percentLoss * 100);
-            tvPecentLoss.setText(String.valueOf((int) percentLoss) + " %");
+            tvPecentLoss.setText(String.valueOf((int) percentLoss) + "%");
             decoViewLoss.addEvent(new DecoEvent.Builder((int) percentLoss)
                     .setIndex(backIndex1)
                     .build());

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 import android.widget.Toolbar;
 
 import java.io.Serializable;
@@ -31,15 +32,18 @@ public class ChartActivity extends AppCompatActivity {
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Line Charts");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    //    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         btnLatencyChart = (Button) findViewById(R.id.btn_latencychart);
         btnLatencyChart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(profile.getLatency().getMaxlatencyus()==0){
+                    Toast.makeText(ChartActivity.this, "latency is zero, can't draw chart", Toast.LENGTH_SHORT).show();
+                }else {
                 Intent intent = new Intent(ChartActivity.this, LatencyChart.class);
                 intent.putExtra("data", (Serializable) profile);
-                startActivity(intent);
+                startActivity(intent);}
             }
         });
 

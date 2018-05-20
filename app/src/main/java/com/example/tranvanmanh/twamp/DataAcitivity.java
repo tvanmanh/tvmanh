@@ -39,8 +39,8 @@ public class DataAcitivity extends AppCompatActivity {
 
 
         if(profile != null){
-            percentLatency = profile.getLatency().getAvglatencyus()/MAX_LATENCY;
-            percentIpdv = profile.getIPDV().getIPDVavg()/MAX_IPDV;
+            percentLatency = profile.getLatency().getAvglatencyus();
+            percentIpdv = profile.getIPDV().getIPDVavg();
             percentLoss = (profile.getLostpackets()*100)/(profile.getTotalPacket());
         }
 
@@ -62,8 +62,9 @@ public class DataAcitivity extends AppCompatActivity {
             tvLevelLa.setText("unAceptable Level");
         }
         else{
+            percentLatency = percentLatency/MAX_LATENCY;
             percentLatency = 100 - (percentLatency*100);
-            tvPecentLa.setText(String.valueOf((int)percentLatency) + " %");
+            tvPecentLa.setText(String.valueOf((int)percentLatency) + "%");
             decoViewLa.addEvent(new DecoEvent.Builder((int) percentLatency)
                     .setIndex(backIndex1)
                     .build());
@@ -94,8 +95,9 @@ public class DataAcitivity extends AppCompatActivity {
             tvLevelI.setText("unAceptable Level");
         }
         else {
+            percentIpdv = percentIpdv/MAX_IPDV;
             percentIpdv = 100 - (percentIpdv * 100);
-            tvPecentI.setText(String.valueOf((int) percentIpdv) + " %");
+            tvPecentI.setText(String.valueOf((int) percentIpdv) + "%");
             decoViewI.addEvent(new DecoEvent.Builder((int) percentIpdv)
                     .setIndex(backIndex1)
                     .build());
@@ -124,7 +126,7 @@ public class DataAcitivity extends AppCompatActivity {
             tvLevelI.setText("unAceptable Level");
         }
         else {
-            tvPecentLoss.setText(String.valueOf(100) + " %");
+            tvPecentLoss.setText(String.valueOf(100) + "%");
             decoViewLoss.addEvent(new DecoEvent.Builder(100)
                     .setIndex(backIndex1)
                     .build());

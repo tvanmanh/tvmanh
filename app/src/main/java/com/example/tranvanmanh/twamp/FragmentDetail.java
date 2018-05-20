@@ -38,9 +38,15 @@ public class FragmentDetail extends DialogFragment {
 
         Bundle bundle = getArguments();
        position = bundle.getInt("position");
-       if(position == 1){
-           tvInfo.setText(MyApp.msgMovie);
+       if(position == 0){
+           tvInfo.setText(MyApp.infoPacketLoss);
        }
+        if(position == 1){
+            tvInfo.setText(MyApp.infoDupplicate);
+        }
+        if(position == 2){
+            tvInfo.setText(MyApp.infoOutOfOrder);
+        }
         return view;
     }
 }

@@ -27,13 +27,14 @@ import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-     private Toolbar toolbar;
-     private EditText edtTCPPort, edtDestination, edtPortSend, edtPortRecieve, edtTestSessions, edtTestMessage, edtUdpPort;
-     private CheckBox cbLightMode;
-     private boolean check = false;
-     private String tcpPORT, updPORT, destination, portSend, portRecieve, testSession, testMessage, lightMode;
-     private SeekBar sbrSession, sbrMessage;
-     String url = "http://"+destination+":8080/s192.168.142.129/m"+testMessage+"/n"+testSession+"/P" + portSend+"/p" + portRecieve+"/l"+lightMode+"/u"+updPORT;
+    private Toolbar toolbar;
+    private EditText edtTCPPort, edtDestination, edtPortSend, edtPortRecieve, edtTestSessions, edtTestMessage, edtUdpPort;
+    private CheckBox cbLightMode;
+    private boolean check = false;
+    private String tcpPORT, updPORT, destination, portSend, portRecieve, testSession, testMessage, lightMode;
+    private SeekBar sbrSession, sbrMessage;
+    String url = "http://" + destination + ":8080/s127.0.0.1/m" + testMessage + "/n" + testSession + "/P" + portSend + "/p" + portRecieve + "/l" + lightMode + "/u" + updPORT;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private  void findView(){
+    private void findView() {
         toolbar = (Toolbar) findViewById(R.id.main_bar);
 
         setSupportActionBar(toolbar);
@@ -91,69 +92,63 @@ public class MainActivity extends AppCompatActivity {
         sbrMessage = (SeekBar) findViewById(R.id.sbrMessage);
         sbrSession = (SeekBar) findViewById(R.id.sbrsession);
     }
-    private boolean getView()
-    {
-        if(!edtDestination.getText().toString().equals("")){
+
+    private boolean getView() {
+        if (!edtDestination.getText().toString().equals("")) {
             destination = edtDestination.getText().toString();
             check = true;
-            if(edtTCPPort.getText().toString().equals(""))
-            {
+            if (edtTCPPort.getText().toString().equals("")) {
                 tcpPORT = "862";
                 edtTCPPort.setText("862");
-            }
-            else {
+            } else {
                 tcpPORT = edtTCPPort.getText().toString().trim();
             }
-            if(edtPortSend.getText().toString().equals("")){
+            if (edtPortSend.getText().toString().equals("")) {
                 portSend = "30000";
                 edtPortSend.setText("30000");
-            }
-            else {
+            } else {
                 portSend = edtPortSend.getText().toString().trim();
             }
-            if(edtPortRecieve.getText().toString().equals("")){
+            if (edtPortRecieve.getText().toString().equals("")) {
                 portRecieve = "20000";
                 edtPortRecieve.setText("20000");
-            }else
-            {
+            } else {
                 portRecieve = edtPortRecieve.getText().toString().trim();
             }
-            if(edtTestSessions.getText().toString().equals("")){
+            if (edtTestSessions.getText().toString().equals("")) {
                 testSession = "1";
                 edtTestSessions.setText("1");
-            }else{
+            } else {
                 testSession = edtTestSessions.getText().toString().trim();
             }
-            if(edtTestMessage.getText().toString().equals("")){
+            if (edtTestMessage.getText().toString().equals("")) {
                 testMessage = "1";
                 edtTestMessage.setText("1");
-            }else {
+            } else {
                 testMessage = edtTestMessage.getText().toString().trim();
             }
-            if(cbLightMode.isChecked()){
+            if (cbLightMode.isChecked()) {
                 lightMode = "1";
-                if(edtUdpPort.getText().equals("")){
-                    updPORT = "3000";
-                    edtUdpPort.setText("3000");
-                }
-            }
-            else {
+                updPORT = "8000";
+                edtUdpPort.setText("8000");
+            } else {
                 lightMode = "0";
                 updPORT = "";
             }
-        }else {
-            check=false;
+        } else {
+            check = false;
             Toast.makeText(this, "Miss Destination!", Toast.LENGTH_SHORT).show();
         }
         return check;
     }
 
-    class GetJsonFromWebSerivce extends AsyncTask<String, String, String>{
+    class GetJsonFromWebSerivce extends AsyncTask<String, String, String> {
 
         OkHttpClient client = new OkHttpClient();
+
         @Override
         protected String doInBackground(String... strings) {
-            Request request = new  Request.Builder().url(strings[0]).build();
+            Request request = new Request.Builder().url(strings[0]).build();
             try {
                 Response response = client.newCall(request).execute();
                 return response.body().string();
@@ -168,30 +163,30 @@ public class MainActivity extends AppCompatActivity {
             super.onPostExecute(s);
 
             String dataJson = s;
-           // Log.e("datajson", dataJson);
-            if(s != null){
+            // Log.e("datajson", dataJson);
+            if (s != null) {
                 Gson gson = new Gson();
-                Type listType = new TypeToken<Profile>(){}.getType();
+                Type listType = new TypeToken<Profile>() {
+                }.getType();
                 Profile profile = gson.fromJson(dataJson, listType);
                 Log.e("haha", profile.getSendtime().toString());
-               // TransferParcel data = new TransferParcel(profile);
+                // TransferParcel data = new TransferParcel(profile);
                 Intent intent = new Intent(MainActivity.this, ResultActivity.class);
-               // intent.putExtra("data", Parcels.wrap(data));
-                intent.putExtra("data", (Serializable)profile);
+                // intent.putExtra("data", Parcels.wrap(data));
+                intent.putExtra("data", (Serializable) profile);
                 intent.putExtra("datajson", dataJson);
                 startActivity(intent);
-            }
-            else {
+            } else {
                 Toast.makeText(MainActivity.this, "failed link!", Toast.LENGTH_SHORT).show();
             }
         }
     }
+
     public void onStart(View view) {
-        if(getView())
-        {
+        if (getView()) {
 //              Intent intent = new Intent(MainActivity.this, ResultActivity.class);
 //              startActivity(intent);
-            url = "http://"+destination+":8080/s127.0.0.1/m"+testMessage+"/n"+testSession+"/P" + portSend+"/p" + portRecieve+"/l"+lightMode+"/u"+updPORT;
+            url = "http://" + destination + ":8080/s127.0.0.1/m" + testMessage + "/n" + testSession + "/P" + portSend + "/p" + portRecieve + "/l" + lightMode + "/u" + updPORT;
             Log.e("abc", url);
             new GetJsonFromWebSerivce().execute(url);
         }
